@@ -25,7 +25,7 @@ const CategoryBlogPage = ({ posts, categoryName, categories }: Props) => {
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {posts.map((post: any, index: number) => (
-              <Post key={index} post={post} />
+              <Post key={index} post={post} compact={false} />
             ))}
           </div>
         </div>

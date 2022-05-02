@@ -31,7 +31,7 @@ const BlogPage = ({ posts, numPages, currentPage, categories }: Props) => {
           {
             posts.map((item:any, index: number) => {
               return (
-                <Post key={index} post={item} />
+                <Post key={index} post={item} compact={false} />
               )
             })
           }
