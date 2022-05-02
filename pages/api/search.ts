@@ -5,14 +5,14 @@ import path from 'path'
 import matter from 'gray-matter'
 
 type Data = {
-  name: string
+  name: any
 }
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
-  let posts: any
+  let posts:any
 
   if(process.env.NODE_ENV === 'production'){
     // @todo - fetch from cache
@@ -36,7 +36,7 @@ export default function handler(
 
   }
 
-  const results: any = posts.filter(
+  const results: [] = posts.filter(
     ({ frontmatter: {title, excerpt, category} }: { frontmatter: any }) => 
     title.toLowerCase().indexOf(req.query.q) != -1 || 
     excerpt.toLowerCase().indexOf(req.query.q) != -1 ||
